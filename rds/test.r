@@ -1,8 +1,8 @@
 data <- readRDS("events_past_year.rds")
 
 # Display count of events for each city and country
-as.data.frame(table(data$venue_city))
-as.data.frame(table(data$venue_country))
+as.data.frame(table(tolower(trimws(data$venue_city))))
+as.data.frame(table(toupper(data$venue_country)))
 
 # Plot top 50 groups (by number of events) using a bar plot
 groupf <- as.data.frame(table(data$group_name))
